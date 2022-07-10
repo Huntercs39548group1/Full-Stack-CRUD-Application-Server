@@ -107,5 +107,18 @@ app.get("/api/students/:id", async (req, res) => {
   }
 });
 
+// Route to delete a single student
+app.delete("/api/students/:id", async (req, res) => {
+  try {
+    const deleteStudent = await Students.deleteByPK(req.params.id);
+    console.log(deleteStudent);
+    res.status(200).json({ results: deleteStudent });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+
+
 
 
