@@ -96,5 +96,16 @@ app.get("/api/students", async (req, res) => {
   }
 });
 
+ // Route to serve up single student
+app.get("/api/students/:id", async (req, res) => {
+  try {
+    const singleStudent = await Students.findByPK(req.params.id);
+    console.log(singleStudent);
+    res.status(200).json({ results: singleStudent });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 
 
