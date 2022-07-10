@@ -118,6 +118,17 @@ app.get("/api/students/:id", async (req, res) => {
   }
 });
 
+// Route to serve up single campus
+app.get("/api/campuses/:id", async (req, res) => {
+  try {
+    const singleCampus = await Campuses.findByPK(req.params.id);
+    console.log(singleCampus);
+    res.status(200).json({ results: singleCampus });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 // Route to delete a single student
 app.delete("/api/students/:id", async (req, res) => {
   try {
