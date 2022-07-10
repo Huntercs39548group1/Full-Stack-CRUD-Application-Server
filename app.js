@@ -96,7 +96,18 @@ app.get("/api/students", async (req, res) => {
   }
 });
 
- // Route to serve up single student
+// Route to serve up all campuses
+app.get("/api/campuses", async (req, res) => {
+  try {
+    const allCampuses = await Campuses.findAll();
+    console.log(allCampuses);
+    res.status(200).json({ results: allCampuses });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+// Route to serve up single student
 app.get("/api/students/:id", async (req, res) => {
   try {
     const singleStudent = await Students.findByPK(req.params.id);
@@ -117,8 +128,3 @@ app.delete("/api/students/:id", async (req, res) => {
     console.log(error);
   }
 });
-
-
-
-
-
