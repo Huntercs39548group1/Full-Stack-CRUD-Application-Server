@@ -181,3 +181,16 @@ app.post("/api/campuses", async (req, res) => {
     console.log(error);
   }
 });
+
+// Route to update a student
+app.put("/api/students/:id", async (req, res) => {
+  try {
+    const updateStudent = await Students.update(req.body, {
+      where: { id: req.params.id },
+    });
+    console.log(updateStudent);
+    res.status(200).json({ results: updateStudent });
+  } catch (error) {
+    console.log(error);
+  }
+});
