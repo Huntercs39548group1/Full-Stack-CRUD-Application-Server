@@ -7,7 +7,6 @@ It initiates all required parts of server application such as Express, routes, d
 ==================================================*/
 /* SET UP DATABASE */
 // Import database setup utilities
-const Sequelize = require("sequelize");
 const createDB = require("./database/utils/createDB"); // Import function to create database
 const seedDB = require("./database/utils/seedDB"); // Import function to seed database
 // Import database instance for database connection (including database name, username, and password)
@@ -110,7 +109,7 @@ app.get("/api/campuses", async (req, res) => {
 // Route to serve up single student
 app.get("/api/students/:id", async (req, res) => {
   try {
-    const singleStudent = await Students.findByPK(req.params.id);
+    const singleStudent = await Students.findOne({where: { id: req.params.id}});
     console.log(singleStudent);
     res.status(200).json({ results: singleStudent });
   } catch (error) {
@@ -121,7 +120,7 @@ app.get("/api/students/:id", async (req, res) => {
 // Route to serve up single campus
 app.get("/api/campuses/:id", async (req, res) => {
   try {
-    const singleCampus = await Campuses.findByPK(req.params.id);
+    const singleCampus = await Campuses.findOne({where: { id: req.params.id}});
     console.log(singleCampus);
     res.status(200).json({ results: singleCampus });
   } catch (error) {
