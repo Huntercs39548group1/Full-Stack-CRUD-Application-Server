@@ -109,7 +109,10 @@ app.get("/api/campuses", async (req, res) => {
 // Route to serve up single student
 app.get("/api/students/:id", async (req, res) => {
   try {
-    const singleStudent = await Students.findOne({where: { id: req.params.id}, include : [Campuses]});
+    const singleStudent = await Students.findOne({
+      where: { id: req.params.id },
+      include: [Campuses],
+    });
     console.log(singleStudent);
     res.status(200).json({ results: singleStudent });
   } catch (error) {
@@ -120,7 +123,10 @@ app.get("/api/students/:id", async (req, res) => {
 // Route to serve up single campus
 app.get("/api/campuses/:id", async (req, res) => {
   try {
-    const singleCampus = await Campuses.findOne({where: { id: req.params.id}, include : [Students]});
+    const singleCampus = await Campuses.findOne({
+      where: { id: req.params.id },
+      include: [Students],
+    });
     console.log(singleCampus);
     res.status(200).json({ results: singleCampus });
   } catch (error) {

@@ -3,32 +3,37 @@
 
 It defines the student model for the database.
 ==================================================*/
-const Sequelize = require('sequelize');  // Import Sequelize
-const db = require('../db');  // Import Sequelize database instance called "db"
+const Sequelize = require("sequelize"); // Import Sequelize
+const db = require("../db"); // Import Sequelize database instance called "db"
 
 const Student = db.define("student", {
-  firstname: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
+    firstname: {
+        type: Sequelize.STRING,
+        allowNull: false,
+    },
 
-  lastname: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
+    lastname: {
+        type: Sequelize.STRING,
+        allowNull: false,
+    },
 
-  email: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
+    email: {
+        type: Sequelize.STRING,
+        allowNull: false,
+    },
 
-  imageUrl: {
-    type: Sequelize.STRING,
-  },
+    imageUrl: {
+        type: Sequelize.STRING,
+        defaultValue: "No URL provided",
+    },
 
-  gpa: {
-    type: Sequelize.FLOAT(1,1),
-  }
+    gpa: {
+        type: Sequelize.FLOAT,
+        validate: {
+          min: 0,
+          max: 4
+        }
+    },
 });
 
 // Export the student model
