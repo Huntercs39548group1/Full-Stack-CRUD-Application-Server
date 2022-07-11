@@ -89,7 +89,7 @@ app.get("/api/students", async (req, res) => {
   try {
     const allStudents = await Students.findAll({ include: [Campuses] });
     console.log(allStudents);
-    res.status(200).json({ results: allStudents });
+    res.status(200).json(allStudents);
   } catch (error) {
     console.log(error);
   }
@@ -100,7 +100,7 @@ app.get("/api/campuses", async (req, res) => {
   try {
     const allCampuses = await Campuses.findAll({ include: [Students] });
     console.log(allCampuses);
-    res.status(200).json({ results: allCampuses });
+    res.status(200).json(allCampuses);
   } catch (error) {
     console.log(error);
   }
@@ -114,7 +114,7 @@ app.get("/api/students/:id", async (req, res) => {
       include: [Campuses],
     });
     console.log(singleStudent);
-    res.status(200).json({ results: singleStudent });
+    res.status(200).json(singleStudent);
   } catch (error) {
     console.log(error);
   }
@@ -128,7 +128,7 @@ app.get("/api/campuses/:id", async (req, res) => {
       include: [Students],
     });
     console.log(singleCampus);
-    res.status(200).json({ results: singleCampus });
+    res.status(200).json(singleCampus);
   } catch (error) {
     console.log(error);
   }
@@ -141,7 +141,7 @@ app.delete("/api/students/:id", async (req, res) => {
       where: { id: req.params.id },
     });
     console.log(deleteStudent);
-    res.status(200).json({ results: deleteStudent });
+    res.status(200).json(deleteStudent);
   } catch (error) {
     console.log(error);
   }
@@ -154,7 +154,7 @@ app.delete("/api/campuses/:id", async (req, res) => {
       where: { id: req.params.id },
     });
     console.log(deleteCampus);
-    res.status(200).json({ results: deleteCampus });
+    res.status(200).json(deleteCampus);
   } catch (error) {
     console.log(error);
   }
@@ -165,7 +165,7 @@ app.post("/api/students", async (req, res) => {
   try {
     const newStudent = await Students.create(req.body);
     console.log(newStudent);
-    res.status(200).json({ results: newStudent });
+    res.status(200).json(newStudent);
   } catch (error) {
     console.log(error);
   }
@@ -176,7 +176,7 @@ app.post("/api/campuses", async (req, res) => {
   try {
     const newCampus = await Campuses.create(req.body);
     console.log(newCampus);
-    res.status(200).json({ results: newCampus });
+    res.status(200).json(newCampus);
   } catch (error) {
     console.log(error);
   }
@@ -189,7 +189,7 @@ app.put("/api/students/:id", async (req, res) => {
       where: { id: req.params.id },
     });
     console.log(updateStudent);
-    res.status(200).json({ results: updateStudent });
+    res.status(200).json(updateStudent);
   } catch (error) {
     console.log(error);
   }
@@ -202,7 +202,7 @@ app.put("/api/campuses/:id", async (req, res) => {
       where: { id: req.params.id },
     });
     console.log(updateCampus);
-    res.status(200).json({ results: updateCampus });
+    res.status(200).json(updateCampus);
   } catch (error) {
     console.log(error);
   }
