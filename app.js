@@ -170,3 +170,14 @@ app.post("/api/students", async (req, res) => {
     console.log(error);
   }
 });
+
+// Route to create a new campus
+app.post("/api/campuses", async (req, res) => {
+  try {
+    const newCampus = await Campuses.create(req.body);
+    console.log(newCampus);
+    res.status(200).json({ results: newCampus });
+  } catch (error) {
+    console.log(error);
+  }
+});
