@@ -146,3 +146,16 @@ app.delete("/api/students/:id", async (req, res) => {
     console.log(error);
   }
 });
+
+// Route to delete a campus
+app.delete("/api/campuses/:id", async (req, res) => {
+  try {
+    const deleteCampus = await Campuses.destroy({
+      where: { id: req.params.id },
+    });
+    console.log(deleteCampus);
+    res.status(200).json({ results: deleteCampus });
+  } catch (error) {
+    console.log(error);
+  }
+});
