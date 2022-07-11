@@ -159,3 +159,14 @@ app.delete("/api/campuses/:id", async (req, res) => {
     console.log(error);
   }
 });
+
+// Route to create a new student
+app.post("/api/students", async (req, res) => {
+  try {
+    const newStudent = await Students.create(req.body);
+    console.log(newStudent);
+    res.status(200).json({ results: newStudent });
+  } catch (error) {
+    console.log(error);
+  }
+});
