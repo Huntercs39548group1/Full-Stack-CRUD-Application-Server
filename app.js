@@ -87,7 +87,7 @@ app.listen(PORT, console.log(`Server started on ${PORT}`));
 // Route to serve up all students
 app.get("/api/students", async (req, res) => {
   try {
-    const allStudents = await Students.findAll();
+    const allStudents = await Students.findAll({include : [Campuses]});
     console.log(allStudents);
     res.status(200).json({ results: allStudents });
   } catch (error) {
@@ -98,7 +98,7 @@ app.get("/api/students", async (req, res) => {
 // Route to serve up all campuses
 app.get("/api/campuses", async (req, res) => {
   try {
-    const allCampuses = await Campuses.findAll();
+    const allCampuses = await Campuses.findAll({include : [Students]});
     console.log(allCampuses);
     res.status(200).json({ results: allCampuses });
   } catch (error) {
