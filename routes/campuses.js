@@ -42,15 +42,14 @@ router.post('/', ash(async(req, res) => {
 }));
 
 /* EDIT CAMPUS */
-router.put('/:id', ash(async(req, res) => {
-  await Campus.update(req.body, {
-    where: {
-      id: req.params.id
-    }
-  });
-  let campus = await Campus.findByPk(req.params.id, {include: [Student]});
-  res.status(201).json(campus);
-}))
+router.put("/:id", (req, res, next) => {
+  Campus.update(req.body, { where: { id: req.params.id } })
+      .then(async() => {
+        let campus = await Campus.findByPk(req.params.id);
+        res.status(201).json(campus);
+      })
+      .catch((err) => next(err));
+});
 
 // Export router, so that it can be imported to construct the apiRouter (app.js)
 module.exports = router;
