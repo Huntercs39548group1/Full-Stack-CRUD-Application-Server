@@ -141,7 +141,7 @@ app.delete("/api/students/:id", async (req, res) => {
       where: { id: req.params.id },
     });
     console.log(deleteStudent);
-    res.status(200).json(deleteStudent);
+    res.status(200).json("Deleted a student!");
   } catch (error) {
     console.log(error);
   }
@@ -154,55 +154,7 @@ app.delete("/api/campuses/:id", async (req, res) => {
       where: { id: req.params.id },
     });
     console.log(deleteCampus);
-    res.status(200).json(deleteCampus);
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-// Route to create a new student
-app.post("/api/students", async (req, res) => {
-  try {
-    const newStudent = await Students.create(req.body);
-    console.log(newStudent);
-    res.status(200).json(newStudent);
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-// Route to create a new campus
-app.post("/api/campuses", async (req, res) => {
-  try {
-    const newCampus = await Campuses.create(req.body);
-    console.log(newCampus);
-    res.status(200).json(newCampus);
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-// Route to update a student
-app.put("/api/students/:id", async (req, res) => {
-  try {
-    const updateStudent = await Students.update(req.body, {
-      where: { id: req.params.id },
-    });
-    console.log(updateStudent);
-    res.status(200).json(updateStudent);
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-// Route to update a campus
-app.put("/api/campuses/:id", async (req, res) => {
-  try {
-    const updateCampus = await Campuses.update(req.body, {
-      where: { id: req.params.id },
-    });
-    console.log(updateCampus);
-    res.status(200).json(updateCampus);
+    res.status(200).json("Deleted a campus!");
   } catch (error) {
     console.log(error);
   }
