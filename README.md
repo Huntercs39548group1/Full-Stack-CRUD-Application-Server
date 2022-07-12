@@ -1,4 +1,4 @@
-# server-starter-code
+# Full-Stack-CRUD-Application-Server
 This repository is created by group Progress for the back-end of the final project.  
 Team members: 
 - Jinyi Tan - remit233
