@@ -5,6 +5,8 @@ Team members:
 - Shi Wei Zheng - dive0
 - Sergey Kisselev - skissele
 - Junior Tenezaca - TJunior1323
+ ## This is Server side of the project
+   Implement with front-end code [[Full-Stack-CRUD-Application-Client](https://github.com/Huntercs39548group1/Full-Stack-CRUD-Application-Client)]
 
 ### Prerequisites
 - Install PostgreSQL (Postgres) [[link](https://www.postgresql.org/download/)] - required to run the database
