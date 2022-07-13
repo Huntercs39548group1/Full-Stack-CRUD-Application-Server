@@ -47,11 +47,10 @@ router.get(
 );
 
 /* ADD NEW STUDENT */
-router.post("/", function (req, res, next) {
-    Student.create(req.body)
-        .then((createdStudent) => res.status(200).json(createdStudent))
-        .catch((err) => next(err));
-});
+router.post('/', ash(async(req, res) => {
+    let newStudent= await Student.create(req.body);
+    res.status(200).json(newStudent);
+  }));
 
 /* DELETE STUDENT */
 router.delete("/:id", function (req, res, next) {
