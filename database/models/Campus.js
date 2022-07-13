@@ -24,7 +24,7 @@ const Campus = db.define("campus", {
 
     imageUrl: {
         type: Sequelize.STRING,
-        defaultValue: "No URL provided",
+        defaultValue: "https://img.freepik.com/free-vector/hand-draw-city-skyline-sketch_1035-19581.jpg?w=2000",
     },
 });
 
