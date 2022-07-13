@@ -12,20 +12,21 @@ const seedDB = async () => {
 		name: "Hunter College",
 		address: "695 Park Ave, New York, NY 10065",
 		description: "This is a school in New York, New York.",
-		imageUrl: "",
+		imageUrl: "https://img.freepik.com/free-vector/hand-draw-city-skyline-sketch_1035-19581.jpg?w=2000",
 	});
 	// Create a new campus
 	const dummy_campus2 = await Campus.create({
 		name: "Queens College",
 		address: "65-30 Kissena Blvd, Queens, NY 11367",
 		description: "This is a school in Queens, New York.",
-		imageUrl: "",
+		imageUrl: "https://img.freepik.com/free-vector/hand-draw-city-skyline-sketch_1035-19581.jpg?w=2000",
 	});
 	// Create a new campus
 	const dummy_campus3 = await Campus.create({
 		name: "Brooklyn College",
 		address: "2900 Bedford Ave, Brooklyn, NY 11210",
-		description: "This is a school in Brooklyn, New York."
+		description: "This is a school in Brooklyn, New York.",
+		imageUrl: "https://img.freepik.com/free-vector/hand-draw-city-skyline-sketch_1035-19581.jpg?w=2000",
 	});
 	
 	// Create a new student for a campus
@@ -33,7 +34,7 @@ const seedDB = async () => {
 		firstname: "Joe",
       lastname: "Smith",
 	  email: "joe.smith@gmail.com",
-	  imageUrl: "",
+	  imageUrl: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
 	  gpa: 3.9,
 	});
 	// Create a new student for a campus
@@ -41,7 +42,7 @@ const seedDB = async () => {
 		firstname: "Mary",
       lastname: "Johnson",
 	  email: "mary.johnson@gmail.com",
-	  imageUrl: "",
+	  imageUrl: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
 	  gpa: 4.0,
 	});
 
